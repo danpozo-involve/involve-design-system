@@ -1,5 +1,8 @@
 node_modules/
-dist/
 *.log
 .DS_Store
 Thumbs.db
+
+# dist/ is intentionally committed -- this package is installed via a Git
+# URL, not published to a registry, so consumers need the built output in
+# the repo rather than relying on a postinstall build step.
