@@ -1,0 +1,414 @@
+@import 'tailwindcss';
+@import './styles/tokens.css';
+
+/* Dark mode: toggle `.dark` on <html>. Both value sets live in tokens.css. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* =============================================================================
+   THEME - map Involve / Collective Kit tokens onto Tailwind utilities.
+   `inline` keeps utilities pointing at var(--token) so `.dark` swaps them all.
+   ========================================================================== */
+@theme inline {
+  --color-*: initial;
+  --color-transparent: transparent;
+  --color-current: currentColor;
+  --color-white: var(--white);
+  --color-black: var(--black);
+
+  /* primitive ramps - escape hatch + style guide */
+  --color-indigo-100: var(--indigo-100);
+  --color-indigo-150: var(--indigo-150);
+  --color-indigo-200: var(--indigo-200);
+  --color-indigo-300: var(--indigo-300);
+  --color-indigo-400: var(--indigo-400);
+  --color-indigo-500: var(--indigo-500);
+  --color-indigo-600: var(--indigo-600);
+  --color-indigo-700: var(--indigo-700);
+  --color-indigo-800: var(--indigo-800);
+  --color-indigo-900: var(--indigo-900);
+  --color-indigo-1000: var(--indigo-1000);
+  --color-indigo-1100: var(--indigo-1100);
+  --color-indigo-1200: var(--indigo-1200);
+
+  --color-slate-100: var(--slate-100);
+  --color-slate-150: var(--slate-150);
+  --color-slate-200: var(--slate-200);
+  --color-slate-300: var(--slate-300);
+  --color-slate-400: var(--slate-400);
+  --color-slate-500: var(--slate-500);
+  --color-slate-600: var(--slate-600);
+  --color-slate-700: var(--slate-700);
+  --color-slate-800: var(--slate-800);
+  --color-slate-900: var(--slate-900);
+  --color-slate-1000: var(--slate-1000);
+  --color-slate-1100: var(--slate-1100);
+  --color-slate-1200: var(--slate-1200);
+
+  --color-grey-100: var(--grey-100);
+  --color-grey-200: var(--grey-200);
+  --color-grey-300: var(--grey-300);
+  --color-grey-400: var(--grey-400);
+  --color-grey-500: var(--grey-500);
+  --color-grey-600: var(--grey-600);
+  --color-grey-700: var(--grey-700);
+  --color-grey-800: var(--grey-800);
+  --color-grey-900: var(--grey-900);
+  --color-grey-1000: var(--grey-1000);
+  --color-grey-1100: var(--grey-1100);
+  --color-grey-1200: var(--grey-1200);
+
+  /* semantic - surfaces */
+  --color-page: var(--surface-page);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-surface-sunken: var(--surface-sunken);
+  --color-surface-hover: var(--surface-hover);
+  --color-surface-disabled: var(--surface-disabled);
+  --color-surface-inverse: var(--surface-inverse);
+
+  /* semantic - borders */
+  --color-border: var(--border);
+  --color-border-subtle: var(--border-subtle);
+  --color-border-strong: var(--border-strong);
+  --color-border-disabled: var(--border-disabled);
+  --color-border-on-color: var(--border-on-color);
+  --color-border-primary: var(--border-primary);
+  --color-border-primary-subtle: var(--border-primary-subtle);
+  --color-border-secondary: var(--border-secondary);
+  --color-border-secondary-hover: var(--border-secondary-hover);
+
+  /* semantic - text (utilities: text-ink, text-ink-muted, ...) */
+  --color-ink: var(--text);
+  --color-ink-strong: var(--text-strong);
+  --color-ink-body: var(--text-body);
+  --color-ink-secondary: var(--text-secondary);
+  --color-ink-muted: var(--text-muted);
+  --color-ink-subtle: var(--text-subtle);
+  --color-ink-disabled: var(--text-disabled);
+  --color-ink-inverse: var(--text-on-color);
+  --color-link: var(--link);
+
+  /* semantic - icon */
+  --color-icon: var(--icon);
+  --color-icon-subtle: var(--icon-subtle);
+  --color-icon-disabled: var(--icon-disabled);
+
+  /* semantic - primary / action */
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-active: var(--primary-active);
+  --color-primary-subtle: var(--primary-subtle);
+  --color-primary-subtle-hover: var(--primary-subtle-hover);
+  --color-on-primary: var(--on-primary);
+  --color-on-primary-subtle: var(--on-primary-subtle);
+
+  /* semantic - secondary / neutral action */
+  --color-secondary: var(--secondary);
+  --color-secondary-hover: var(--secondary-hover);
+  --color-on-secondary: var(--on-secondary);
+
+  /* semantic - status */
+  --color-danger: var(--danger);
+  --color-danger-hover: var(--danger-hover);
+  --color-danger-subtle: var(--danger-subtle);
+  --color-danger-subtle-hover: var(--danger-subtle-hover);
+  --color-on-danger: var(--on-danger);
+  --color-danger-text: var(--danger-text);
+  --color-danger-border: var(--danger-border);
+
+  --color-success: var(--success);
+  --color-success-hover: var(--success-hover);
+  --color-success-subtle: var(--success-subtle);
+  --color-success-subtle-hover: var(--success-subtle-hover);
+  --color-on-success: var(--on-success);
+  --color-success-text: var(--success-text);
+  --color-success-border: var(--success-border);
+
+  --color-warning: var(--warning);
+  --color-warning-hover: var(--warning-hover);
+  --color-warning-subtle: var(--warning-subtle);
+  --color-warning-subtle-hover: var(--warning-subtle-hover);
+  --color-on-warning: var(--on-warning);
+  --color-warning-text: var(--warning-text);
+  --color-warning-border: var(--warning-border);
+
+  --color-info: var(--info);
+  --color-info-hover: var(--info-hover);
+  --color-info-subtle: var(--info-subtle);
+  --color-info-subtle-hover: var(--info-subtle-hover);
+  --color-on-info: var(--on-info);
+  --color-info-text: var(--info-text);
+  --color-info-border: var(--info-border);
+
+  --color-ring: var(--ring);
+
+  /* radius - Collective Kit scale */
+  --radius-*: initial;
+  --radius-none: var(--corner-none);
+  --radius-xs: var(--corner-xs);
+  --radius-sm: var(--corner-sm);
+  --radius-md: var(--corner-md);
+  --radius-lg: var(--corner-lg);
+  --radius-xl: var(--corner-xl);
+  --radius-2xl: var(--corner-2xl);
+  --radius-3xl: var(--corner-3xl);
+  --radius-4xl: var(--corner-4xl);
+  --radius-5xl: var(--corner-5xl);
+  --radius-6xl: var(--corner-6xl);
+  --radius: var(--corner-lg);
+
+  /* elevation */
+  --shadow-*: initial;
+  --shadow-xs: var(--elevation-xs);
+  --shadow-sm: var(--elevation-sm);
+  --shadow: var(--elevation-sm);
+  --shadow-md: var(--elevation-md);
+  --shadow-lg: var(--elevation-lg);
+  --shadow-xl: var(--elevation-xl);
+
+  /* type */
+  --font-sans: var(--font-family-base);
+  --font-display: var(--font-family-display);
+  --default-font-family: var(--font-family-base);
+}
+
+/* =============================================================================
+   BASE
+   ========================================================================== */
+@layer base {
+  *,
+  ::before,
+  ::after,
+  ::backdrop {
+    border-color: var(--border-subtle);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    font-family: var(--font-family-base);
+  }
+
+  body {
+    margin: 0;
+    min-height: 100dvh;
+    background-color: var(--surface-page);
+    color: var(--text-body);
+    font-family: var(--font-family-base);
+    font-size: var(--t-paragraph-md-size);
+    line-height: var(--t-paragraph-md-leading);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+    color: var(--text-strong);
+    font-family: var(--font-family-display);
+    font-weight: 600;
+  }
+  h1 {
+    font-size: var(--t-h3-size);
+    line-height: var(--t-h3-leading);
+    letter-spacing: var(--t-h3-tracking);
+  }
+  h2 {
+    font-size: var(--t-h4-size);
+    line-height: var(--t-h4-leading);
+    letter-spacing: var(--t-h4-tracking);
+  }
+  h3 {
+    font-size: var(--t-h5-size);
+    line-height: var(--t-h5-leading);
+  }
+  h4 {
+    font-size: var(--t-h6-size);
+    line-height: var(--t-h6-leading);
+  }
+
+  p {
+    margin: 0;
+  }
+  a {
+    color: var(--link);
+    text-decoration: none;
+  }
+  button {
+    font-family: inherit;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+    border-radius: var(--corner-xs);
+  }
+
+  ::selection {
+    background: var(--indigo-100);
+    color: var(--indigo-900);
+  }
+}
+
+/* =============================================================================
+   TEXT STYLES - the kit's named type ramp in Plus Jakarta Sans. Headings use
+   the --font-display hook (currently == body). Prefer .t-* over ad-hoc sizes.
+   Headings scale up at >=768px; paragraph + caption are size-stable.
+   ========================================================================== */
+@layer components {
+  .t-hero,
+  .t-h1,
+  .t-h2,
+  .t-h3,
+  .t-h4,
+  .t-h5,
+  .t-h6 {
+    font-family: var(--font-family-display);
+  }
+  .t-hero {
+    font-size: var(--t-hero-size);
+    line-height: var(--t-hero-leading);
+    font-weight: var(--t-hero-weight);
+    letter-spacing: var(--t-hero-tracking);
+  }
+  .t-h1 {
+    font-size: var(--t-h1-size);
+    line-height: var(--t-h1-leading);
+    font-weight: var(--t-h1-weight);
+    letter-spacing: var(--t-h1-tracking);
+  }
+  .t-h2 {
+    font-size: var(--t-h2-size);
+    line-height: var(--t-h2-leading);
+    font-weight: var(--t-h2-weight);
+    letter-spacing: var(--t-h2-tracking);
+  }
+  .t-h3 {
+    font-size: var(--t-h3-size);
+    line-height: var(--t-h3-leading);
+    font-weight: var(--t-h3-weight);
+    letter-spacing: var(--t-h3-tracking);
+  }
+  .t-h4 {
+    font-size: var(--t-h4-size);
+    line-height: var(--t-h4-leading);
+    font-weight: var(--t-h4-weight);
+    letter-spacing: var(--t-h4-tracking);
+  }
+  .t-h5 {
+    font-size: var(--t-h5-size);
+    line-height: var(--t-h5-leading);
+    font-weight: var(--t-h5-weight);
+    letter-spacing: var(--t-h5-tracking);
+  }
+  .t-h6 {
+    font-size: var(--t-h6-size);
+    line-height: var(--t-h6-leading);
+    font-weight: var(--t-h6-weight);
+    letter-spacing: var(--t-h6-tracking);
+  }
+  .t-paragraph-lg {
+    font-size: var(--t-paragraph-lg-size);
+    line-height: var(--t-paragraph-lg-leading);
+    font-weight: var(--t-paragraph-lg-weight);
+  }
+  .t-paragraph-md {
+    font-size: var(--t-paragraph-md-size);
+    line-height: var(--t-paragraph-md-leading);
+    font-weight: var(--t-paragraph-md-weight);
+  }
+  .t-paragraph-sm {
+    font-size: var(--t-paragraph-sm-size);
+    line-height: var(--t-paragraph-sm-leading);
+    font-weight: var(--t-paragraph-sm-weight);
+  }
+  .t-caption {
+    font-size: var(--t-caption-size);
+    line-height: var(--t-caption-leading);
+    font-weight: var(--t-caption-weight);
+  }
+  .t-label {
+    font-size: var(--t-label-size);
+    line-height: var(--t-label-leading);
+    font-weight: var(--t-label-weight);
+  }
+  .t-overline {
+    font-size: var(--t-overline-size);
+    line-height: var(--t-overline-leading);
+    font-weight: var(--t-overline-weight);
+    letter-spacing: var(--t-overline-tracking);
+    text-transform: uppercase;
+  }
+
+  @media (min-width: 768px) {
+    .t-hero {
+      font-size: 6rem;
+      line-height: 7rem;
+    }
+    .t-h1 {
+      font-size: 4.5rem;
+      line-height: 5.5rem;
+    }
+    .t-h2 {
+      font-size: 3.75rem;
+      line-height: 4.5rem;
+    }
+    .t-h3 {
+      font-size: 3rem;
+      line-height: 4rem;
+    }
+    .t-h4 {
+      font-size: 2.25rem;
+      line-height: 3rem;
+    }
+    .t-h5 {
+      font-size: 1.875rem;
+      line-height: 2.5rem;
+    }
+    .t-h6 {
+      font-size: 1.5rem;
+      line-height: 2rem;
+    }
+  }
+}
+
+/* =============================================================================
+   IMAGE-OVER-TEXT SCRIMS
+   Eased (multi-stop, ~ease-out) black gradients for text protection on cover
+   images. Flat 2-stop gradients band and look cheap; these fade invisibly.
+   .scrim-b = bottom-anchored (content sits at the bottom); .scrim-t = top.
+   ========================================================================== */
+@layer components {
+  .scrim-b {
+    background-image: linear-gradient(
+      to top,
+      hsl(0 0% 0% / 0.78) 0%,
+      hsl(0 0% 0% / 0.72) 7%,
+      hsl(0 0% 0% / 0.6) 18%,
+      hsl(0 0% 0% / 0.47) 29%,
+      hsl(0 0% 0% / 0.35) 39%,
+      hsl(0 0% 0% / 0.24) 50%,
+      hsl(0 0% 0% / 0.15) 60%,
+      hsl(0 0% 0% / 0.088) 70%,
+      hsl(0 0% 0% / 0.046) 79%,
+      hsl(0 0% 0% / 0.02) 88%,
+      hsl(0 0% 0% / 0.005) 95%,
+      hsl(0 0% 0% / 0) 100%
+    );
+  }
+  .scrim-t {
+    background-image: linear-gradient(
+      to bottom,
+      hsl(0 0% 0% / 0.36) 0%,
+      hsl(0 0% 0% / 0.26) 20%,
+      hsl(0 0% 0% / 0.16) 40%,
+      hsl(0 0% 0% / 0.08) 60%,
+      hsl(0 0% 0% / 0.03) 80%,
+      hsl(0 0% 0% / 0) 100%
+    );
+  }
+}
