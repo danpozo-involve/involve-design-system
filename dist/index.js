@@ -131,20 +131,25 @@ function Spinner({ size = 20, className, label = "Loading" }) {
   );
 }
 var buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md font-medium select-none transition-[background-color,border-color,color,box-shadow] duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50",
+  // "Playful/Tactile" direction (2026-09-16): full pill shape, bold weight, and a
+  // real press -- scales down on :active, up slightly on :hover. See
+  // https://claude.ai/artifact/BPqveLj1wimShiND372ikj for the side-by-side this
+  // was picked from. pointer-events-none on disabled already suppresses
+  // hover/active, so no separate disabled override is needed for the scale.
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full font-bold select-none transition-[background-color,border-color,color,box-shadow,transform,filter] duration-150 hover:scale-[1.03] active:scale-[0.95] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50",
   {
     variants: {
       variant: {
-        primary: "bg-primary text-on-primary shadow-xs hover:bg-primary-hover active:bg-primary-active",
-        secondary: "border border-border bg-surface text-ink shadow-xs hover:bg-surface-hover active:bg-surface-sunken",
+        primary: "bg-primary text-on-primary shadow-md hover:bg-primary-hover hover:shadow-lg active:bg-primary-active",
+        secondary: "border border-border bg-surface text-ink shadow-md hover:bg-surface-hover hover:shadow-lg active:bg-surface-sunken",
         subtle: "bg-primary-subtle text-on-primary-subtle hover:bg-primary-subtle-hover active:bg-primary-subtle-hover",
         ghost: "bg-transparent text-ink-muted hover:bg-surface-hover hover:text-ink",
-        danger: "bg-danger text-on-danger shadow-xs hover:brightness-95 active:brightness-90"
+        danger: "bg-danger text-on-danger shadow-md hover:brightness-95 hover:shadow-lg active:brightness-90"
       },
       size: {
-        sm: "h-9 px-3 text-sm",
-        md: "h-10 px-4 text-sm",
-        lg: "h-12 px-5 text-base"
+        sm: "h-9 px-4 text-sm",
+        md: "h-10 px-5 text-sm",
+        lg: "h-12 px-6 text-base"
       },
       block: { true: "w-full", false: "" }
     },
@@ -308,12 +313,15 @@ function EmptyState({
   );
 }
 var iconButtonVariants = cva(
-  "inline-flex items-center justify-center rounded-md transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:pointer-events-none disabled:opacity-50",
+  // Matches Button's "Playful/Tactile" direction (2026-09-16) -- full radius
+  // (a circle, since this is always square) and the same press/hover scale,
+  // for one consistent tactile feel across the whole button family.
+  "inline-flex items-center justify-center rounded-full transition-[background-color,color,box-shadow,transform] duration-150 hover:scale-[1.05] active:scale-[0.92] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
-        primary: "bg-primary text-on-primary shadow-xs hover:bg-primary-hover",
-        secondary: "border border-border bg-surface text-ink shadow-xs hover:bg-surface-hover",
+        primary: "bg-primary text-on-primary shadow-md hover:bg-primary-hover hover:shadow-lg",
+        secondary: "border border-border bg-surface text-ink shadow-md hover:bg-surface-hover hover:shadow-lg",
         ghost: "bg-transparent text-ink-muted hover:bg-surface-hover hover:text-ink",
         danger: "bg-transparent text-ink-muted hover:bg-danger-subtle hover:text-danger-text"
       },

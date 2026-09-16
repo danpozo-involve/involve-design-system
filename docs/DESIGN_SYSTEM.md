@@ -77,11 +77,11 @@ semantic token. `main.tsx` restores the viewer's choice from `localStorage`.
 | `rounded-xs`                  | 2       | inline chips           |
 | `rounded-sm`                  | 4       | tags                   |
 | `rounded-md`                  | 6       | compact controls       |
-| `rounded-lg`                  | 8       | **buttons, inputs**    |
+| `rounded-lg`                  | 8       | **inputs**             |
 | `rounded-xl`                  | 12      | **cards**              |
 | `rounded-2xl`                 | 16      | sheets, modals         |
 | `rounded-3xl` / `rounded-4xl` | 20 / 24 | large surfaces         |
-| `rounded-full`                | —       | avatars, pills, badges |
+| `rounded-full`                | —       | avatars, pills, badges, **buttons (both `Button` and `IconButton`, since 2026-09-16 — "Playful/Tactile" direction)** |
 
 Border widths: `--stroke-xs` 1 · `--stroke-sm` 2 · `--stroke-md` 4.
 
@@ -92,6 +92,8 @@ Border widths: `--stroke-xs` 1 · `--stroke-sm` 2 · `--stroke-md` 4.
 Not defined in the kit's variables — Involve adds five slate-tinted tiers:
 `shadow-xs` (resting) · `shadow-sm` (cards) · `shadow-md` (hover/popover) ·
 `shadow-lg` (dropdown) · `shadow-xl` (modal). Shadows read faintly in dark mode.
+
+**Exception, since 2026-09-16:** `Button` and `IconButton` (primary/secondary/danger) sit one tier higher than this general guide — `shadow-md` at rest, `shadow-lg` on hover — as part of the "Playful/Tactile" direction. This is deliberate for the button family specifically, not a redefinition of what `shadow-md`/`shadow-lg` mean for everything else (cards, dropdowns, etc. still follow the tiers above).
 
 **Focus:** every interactive element shows `2px` indigo `:focus-visible` outline;
 form fields add a `4px` `ring-ring` halo. Don't remove it.
