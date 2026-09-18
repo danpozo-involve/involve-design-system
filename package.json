@@ -24,7 +24,9 @@
   ],
   "scripts": {
     "build": "tsup",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "verify-theme": "node scripts/verify-theme.mjs",
+    "prepare": "npm run verify-theme"
   },
   "peerDependencies": {
     "react": ">=18",
