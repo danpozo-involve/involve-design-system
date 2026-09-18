@@ -1,7 +1,7 @@
 {
   "name": "@danpozo-involve/involve-design-system",
   "private": false,
-  "version": "0.2.1",
+  "version": "0.2.2",
   "type": "module",
   "description": "Involve's design system — tokens, primitives, and app-shell components, extracted from the student flow prototype.",
   "license": "MIT",
@@ -23,7 +23,7 @@
     "src/styles"
   ],
   "scripts": {
-    "build": "tsup",
+    "build": "tsup && node scripts/add-use-client.mjs",
     "typecheck": "tsc --noEmit",
     "verify-theme": "node scripts/verify-theme.mjs",
     "prepare": "npm run verify-theme"

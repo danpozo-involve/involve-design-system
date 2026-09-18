@@ -1,3 +1,4 @@
+'use client';
 import * as RAvatar from '@radix-ui/react-avatar';
 import { cva } from 'class-variance-authority';
 import { clsx } from 'clsx';
