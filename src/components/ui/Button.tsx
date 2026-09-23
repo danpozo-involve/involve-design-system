@@ -26,6 +26,7 @@ export const buttonVariants = cva(
           'bg-danger text-on-danger shadow-md hover:brightness-95 hover:shadow-lg active:brightness-90',
       },
       size: {
+        xs: 'h-7 px-3 text-xs',
         sm: 'h-9 px-4 text-sm',
         md: 'h-10 px-5 text-sm',
         lg: 'h-12 px-6 text-base',

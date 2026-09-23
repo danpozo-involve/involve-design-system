@@ -140,7 +140,7 @@ import { AppLayout, Page, TopBar, SectionHeader } from '@/components/shell'
 
 | Component                                                                                        | Key props                                                                                           |
 | ------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------- |
-| `Button`                                                                                         | `variant` primary·secondary·subtle·ghost·danger · `size` sm·md·lg · `loading` · `block` · `asChild` |
+| `Button`                                                                                         | `variant` primary·secondary·subtle·ghost·danger · `size` xs·sm·md·lg · `loading` · `block` · `asChild` |
 | `IconButton`                                                                                     | `label` (required) · `variant` · `size`                                                             |
 | `Input` / `Textarea` / `Select`                                                                  | `label` · `hint` · `error` · (Input) `leading` / `trailing`                                         |
 | `Checkbox` / `Switch`                                                                            | `label` · `description` (Radix)                                                                     |
