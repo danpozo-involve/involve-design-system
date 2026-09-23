@@ -292,20 +292,41 @@ function EmptyState({
   title,
   description,
   action,
+  size = "md",
   className
 }) {
+  const sm = size === "sm";
   return /* @__PURE__ */ jsxs(
     "div",
     {
       className: cn(
-        "border-border flex flex-col items-center justify-center gap-3 rounded-lg border border-dashed px-6 py-12 text-center",
+        "border-border flex flex-col items-center justify-center rounded-lg border border-dashed text-center",
+        sm ? "gap-2 px-4 py-8" : "gap-3 px-6 py-12",
         className
       ),
       children: [
-        IconCmp && /* @__PURE__ */ jsx("span", { className: "bg-surface-sunken text-ink-subtle flex size-12 items-center justify-center rounded-full", children: /* @__PURE__ */ jsx(IconCmp, { size: 24 }) }),
+        IconCmp && /* @__PURE__ */ jsx(
+          "span",
+          {
+            className: cn(
+              "bg-surface-sunken text-ink-subtle flex items-center justify-center rounded-full",
+              sm ? "size-10" : "size-12"
+            ),
+            children: /* @__PURE__ */ jsx(IconCmp, { size: sm ? 20 : 24 })
+          }
+        ),
         /* @__PURE__ */ jsxs("div", { className: "flex flex-col gap-1", children: [
-          /* @__PURE__ */ jsx("p", { className: "t-h6 text-ink", children: title }),
-          description && /* @__PURE__ */ jsx("p", { className: "t-paragraph-sm text-ink-muted mx-auto max-w-xs", children: description })
+          /* @__PURE__ */ jsx("p", { className: cn("text-ink", sm ? "t-label" : "t-h6"), children: title }),
+          description && /* @__PURE__ */ jsx(
+            "p",
+            {
+              className: cn(
+                "text-ink-muted mx-auto max-w-xs",
+                sm ? "t-caption" : "t-paragraph-sm"
+              ),
+              children: description
+            }
+          )
         ] }),
         action && /* @__PURE__ */ jsx("div", { className: "mt-1", children: action })
       ]

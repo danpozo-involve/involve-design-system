@@ -83,9 +83,11 @@ interface EmptyStateProps {
     title: string;
     description?: string;
     action?: React.ReactNode;
+    /** `sm` for narrow panels and sidebars; `md` (default) for full-page empty states. */
+    size?: 'sm' | 'md';
     className?: string;
 }
-declare function EmptyState({ icon: IconCmp, title, description, action, className, }: EmptyStateProps): react.JSX.Element;
+declare function EmptyState({ icon: IconCmp, title, description, action, size, className, }: EmptyStateProps): react.JSX.Element;
 
 declare const iconButtonVariants: (props?: ({
     variant?: "danger" | "primary" | "secondary" | "ghost" | null | undefined;
