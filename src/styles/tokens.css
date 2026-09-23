@@ -183,6 +183,10 @@
   --t-paragraph-lg-leading: 1.75rem;
   --t-paragraph-lg-weight: 400;
   --t-paragraph-lg-tracking: 0em;
+  --t-title-size: 1.125rem;
+  --t-title-leading: 1.5rem;
+  --t-title-weight: 600;
+  --t-title-tracking: -0.01em;
   --t-paragraph-md-size: 1rem;
   --t-paragraph-md-leading: 1.5rem;
   --t-paragraph-md-weight: 400;

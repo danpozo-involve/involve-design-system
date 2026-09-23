@@ -120,6 +120,7 @@ Use the named `.t-*` classes — the kit's scale. Headings scale **up at ≥768p
 | `.t-h5`           | 24/32 → 30/40                         | 600    | **App screen title**             |
 | `.t-h6`           | 20/28 → 24/32                         | 600    | **In-page section / card group** |
 | `.t-paragraph-lg` | 20/28                                 | 400    | Lead paragraph                   |
+| `.t-title`        | 18/24                                 | 600    | **Workspace / channel header**   |
 | `.t-paragraph-md` | 16/24                                 | 400    | **Default body**                 |
 | `.t-paragraph-sm` | 14/20                                 | 400    | Dense UI, secondary copy         |
 | `.t-label`        | 14/20                                 | 500    | Form labels, nav items, buttons  |

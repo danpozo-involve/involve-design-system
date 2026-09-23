@@ -267,7 +267,8 @@
   .t-h3,
   .t-h4,
   .t-h5,
-  .t-h6 {
+  .t-h6,
+  .t-title {
     font-family: var(--font-family-display);
   }
   .t-hero {
@@ -316,6 +317,12 @@
     font-size: var(--t-paragraph-lg-size);
     line-height: var(--t-paragraph-lg-leading);
     font-weight: var(--t-paragraph-lg-weight);
+  }
+  .t-title {
+    font-size: var(--t-title-size);
+    line-height: var(--t-title-leading);
+    font-weight: var(--t-title-weight);
+    letter-spacing: var(--t-title-tracking);
   }
   .t-paragraph-md {
     font-size: var(--t-paragraph-md-size);
