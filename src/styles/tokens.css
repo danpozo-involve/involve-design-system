@@ -250,6 +250,12 @@
   --primary-subtle-hover: var(--indigo-150);
   --on-primary: var(--slate-100);
   --on-primary-subtle: var(--indigo-700);
+  /* Brand blocking steps beyond subtle: a mid-light and a deep indigo fill for brand surfaces
+     (illustrative panels, onboarding cards). Not state colors; never use for status. */
+  --primary-muted: var(--indigo-200);
+  --on-primary-muted: var(--indigo-1000);
+  --primary-deep: var(--indigo-1000);
+  --on-primary-deep: var(--indigo-100);
   --border-primary: var(--indigo-600);
   --border-primary-subtle: var(--indigo-200);
 
@@ -336,6 +342,10 @@
   --primary-subtle-hover: var(--indigo-900);
   --on-primary: var(--indigo-1200);
   --on-primary-subtle: var(--indigo-200);
+  --primary-muted: var(--indigo-800);
+  --on-primary-muted: var(--indigo-100);
+  --primary-deep: var(--indigo-1100);
+  --on-primary-deep: var(--indigo-100);
   --border-primary: var(--indigo-400);
   --border-primary-subtle: var(--indigo-700);
 
