@@ -4,16 +4,14 @@ import { forwardRef } from 'react'
 import { cn } from '@/lib/cn'
 
 const iconButtonVariants = cva(
-  // Matches Button's "Playful/Tactile" direction (2026-09-16) -- full radius
-  // (a circle, since this is always square) and the same press/hover scale,
-  // for one consistent tactile feel across the whole button family.
-  'inline-flex items-center justify-center rounded-full transition-[background-color,color,box-shadow,transform] duration-150 hover:scale-[1.05] active:scale-[0.92] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:pointer-events-none disabled:opacity-50',
+  // Matches Button's "Calm" direction (2026-11-09): rounded square (8px), no shadows, colour-only
+  // hover, and the same 2% press, for one consistent feel across the button family.
+  'inline-flex cursor-pointer items-center justify-center rounded-lg transition-[background-color,border-color,color,transform] duration-100 active:scale-[0.98] motion-reduce:active:scale-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:pointer-events-none disabled:opacity-50',
   {
     variants: {
       variant: {
-        primary: 'bg-primary text-on-primary shadow-md hover:bg-primary-hover hover:shadow-lg',
-        secondary:
-          'border border-border bg-surface text-ink shadow-md hover:bg-surface-hover hover:shadow-lg',
+        primary: 'bg-primary text-on-primary hover:bg-primary-hover',
+        secondary: 'border border-border-strong bg-secondary text-on-secondary hover:bg-secondary-hover',
         ghost: 'bg-transparent text-ink-muted hover:bg-surface-hover hover:text-ink',
         danger:
           'bg-transparent text-ink-muted hover:bg-danger-subtle hover:text-danger-text',
