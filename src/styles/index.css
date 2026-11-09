@@ -102,6 +102,10 @@
   --color-primary-subtle-hover: var(--primary-subtle-hover);
   --color-on-primary: var(--on-primary);
   --color-on-primary-subtle: var(--on-primary-subtle);
+  --color-primary-muted: var(--primary-muted);
+  --color-on-primary-muted: var(--on-primary-muted);
+  --color-primary-deep: var(--primary-deep);
+  --color-on-primary-deep: var(--on-primary-deep);
 
   /* semantic - secondary / neutral action */
   --color-secondary: var(--secondary);

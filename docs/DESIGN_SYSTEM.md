@@ -60,6 +60,12 @@ semantic token. `main.tsx` restores the viewer's choice from `localStorage`.
 **Primary / action** — `bg-primary` `bg-primary-hover` `bg-primary-active`
 `bg-primary-subtle` `bg-primary-subtle-hover`, text `text-on-primary` / `text-on-primary-subtle`.
 
+**Brand blocking** — for brand surfaces that need more than one indigo weight (illustrative
+panels, onboarding cards), not for state: `bg-primary-muted` (indigo-200) with
+`text-on-primary-muted`, and `bg-primary-deep` (indigo-1000) with `text-on-primary-deep`.
+Together with `bg-primary` and `bg-primary-subtle` they give one hue at four lightness levels,
+so hierarchy comes from brightness, not extra hues. Never use them for status.
+
 **Secondary / neutral action** — `bg-secondary` `bg-secondary-hover`, `text-on-secondary`.
 
 **Status** — each of `danger` / `success` / `warning` / `info` has: solid (`bg-danger`),
